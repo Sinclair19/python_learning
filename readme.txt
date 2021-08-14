@@ -1,1 +1,1 @@
-This is a simple practise
+pythonlearning repo
