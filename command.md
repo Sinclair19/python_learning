@@ -298,3 +298,48 @@ start和end可省略
 `dictionary = {key:['A','B','C']}`
 
 ### 6.4.3在字典中存储字典
+
+***
+
+# 7用户输入和`while`循环
+
+## 7.1函数`input()`的工作原理
+`input("message want to show")`
+
+### 7.1.1编写清晰的程序
+```python
+prompt = "If you tell us who you are, we can personalize the messages you see."
+prompt += "\nWhat is your first name? "
+```
+`+=`添加字符串
+
+### 7.1.2使用`int()`来获取数值输入
+函数`int()`将数的字符串表示转换为数值表示
+
+### 7.1.3求模运算符
+求模运算符`%`将两个数相除并返回余数
+
+## 7.2`while`循环简介
+
+### 7.2.1使用`while`循环
+
+### 7.2.2让用户选择何时退出
+
+### 7.2.3使用标志
+
+### 7.2.4　使用`break`退出循环
+以`while True`打头的循环将不断运行，直到遇到`break`语句
+在任何Python循环中都可使用`break`语句。可使用`break`语句来退出遍历列表或字典的`for`循环。
+
+### 7.2.5在循环中使用`continue`
+执行`continue`语句，让Python忽略余下的代码，并返回循环的开头
+
+### 7.2.6避免无限循环
+
+## 7.3使用`while`循环处理列表和字典
+
+### 7.3.1在列表之间移动元素
+
+### 7.3.2删除为特定值的所有列表元素
+
+### 7.3.3使用用户输入来填充字典
