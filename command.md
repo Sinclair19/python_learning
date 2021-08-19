@@ -632,3 +632,55 @@ print(numbers)
 ### 10.4.2保存和读取用户生成的数据
 
 ### 10.4.3重构
+
+# 11测试代码
+
+## 11.1测试函数
+
+### 11.1.1单元测试和测试用例
+Python标准库中的模块`unittest`提供了代码测试工具
+**单元测试**用于核实函数的某个方面没有问题
+**测试用例**是一组单元测试，它们一道核实函数在各种情形下的行为都符合要求
+
+```python
+import unittest
+from name_function import get_formatted_name
+class NamesTestCase(unittest.TestCase):
+   """测试name_function.py。"""
+   def test_first_last_name(self):
+      """能够正确地处理像Janis Joplin这样的姓名吗？"""
+      formatted_name = get_formatted_name('janis','joplin')
+      self.assertEqual(formatted_name, 'Janis Joplin')
+if __name__ == '__main__':
+   unittest.main()
+```
+
+### 11.1.2可通过的测试
+这个类必须继承`unittest.TestCase`类
+**断言**方法。断言方法核实得到的结果是否与期望的结果一致
+`assertEqual()`
+
+### 11.1.3未通过的测试
+
+### 11.1.4测试未通过时怎么办
+
+### 11.1.5添加新测试
+
+## 11.2测试类
+`unittest`模块中的测试方法
+
+|方法|用途|
+|   :----   |  :----   |
+|  assertEqual(a, b)  |  核实a == b  |
+|  assertNotEqual(a, b)  |  核实a != b  |
+|  assertTrue(x)  |  核实x 为True  |
+|  assertFalse(x)  |  核实x 为False  |
+|  assertIn(item , list )  |  核实 item 在 list 中  |
+|  assertNotIn(item , list )  |  核实 item 不在 list 中  |
+
+### 11.2.2一个要测试的类
+
+### 11.2.3测试`AnonymousSurvey`类
+
+### 11.2.4方法`setUp()`
+方法`setUp()`做了两件事情：创建一个调查对象，以及创建一个答案列表
