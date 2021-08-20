@@ -15,25 +15,29 @@ class Die:
 die_1 = Die()
 die_2 = Die()
 # 掷几次骰子并将结果存储在一个列表中。
-""" sum = die_1.roll()*die_2.roll()
-results = [sum for x in range(1000)] """
-results = []
-for roll_num in range(10000):
-    result = die_1.roll() * die_2.roll()
-    results.append(result)
+
+results = [die_1.roll()*die_2.roll() for _ in range(10000)]
+
+# results = []
+# for roll_num in range(10000):
+#     result = die_1.roll() * die_2.roll()
+#     results.append(result)
 
 # 分析结果。
-frequencies = []
+
+
 list1 = [1,2,3,4,5,6,8,9,10,12,15,16,18,20,24,25,30,36]
-for value in list1:
-    frequency = results.count(value)
-    frequencies.append(frequency) 
+frequencies = [results.count(value) for value in list1]
+
+# for value in list1:
+#     frequency = results.count(value)
+#     frequencies.append(frequency) 
 
 # 可视化结果。
 x_values = list1
 data = [Bar(x=x_values, y=frequencies)]
 x_axis_config = {'title': '结果', 'dtick': 1}
 y_axis_config = {'title': '结果的频率'}
-my_layout = Layout(title='掷两个D6 1000次的结果',
+my_layout = Layout(title='掷两个D6 10000次点数相乘的结果',
 xaxis=x_axis_config, yaxis=y_axis_config)
 offline.plot({'data': data, 'layout': my_layout},filename='d6*d6.html')
