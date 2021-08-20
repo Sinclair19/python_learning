@@ -40,3 +40,44 @@ x坐标最小，最大，y坐标最小，最大范围
 `plt.savefig('squares_plot.png', bbox_inches='tight')`
 第一个实参指定要以什么文件名保存图表，这个文件将存储到scatter_squares.py所在的目录。
 第二个实参指定将图表多余的空白区域裁剪掉。如果要保留图表周围多余的空白区域，只需省略这个实参即可。
+
+## 15.3随机漫步
+
+### 15.3.1创建`RandomWalk`类
+randomwalk.py
+```py
+from random import choice
+class RandomWalk:
+    """一个生成随机漫步数据的类。"""
+    def __init__(self, num_points=5000):
+        """初始化随机漫步的属性。"""
+        self.num_points = num_points
+        #所有随机漫步都始于(0, 0)。
+        self.x_values = [0]
+        self.y_values = [0]
+```
+### 15.3.2选择方向
+
+### 15.3.5设置随机漫步图的样式
+1. 给点着色
+   我们将使用颜色映射来指出漫步中各点的先后顺序，并删除每个点的黑色轮廓，让其颜色更为明显。
+2. 重新绘制起点和终点
+3. 隐藏坐标轴
+   `ax.get_xaxis().set_visible(False)`
+4. 增加点数
+5. 调整尺寸以适合屏幕
+   `fig, ax = plt.subplots(figsize=(10, 6), dpi=128)`
+
+## 15.4使用Plotly模拟掷骰子
+
+### 15.4.2创建`Die`类
+`from random import randint`
+`randint(a,b)`
+返回a，b之间的任何整数，包括a，b
+
+### 15.4.4分析结果
+
+### 15.4.5绘制直方图
+
+### 15.4.6同时掷两个骰子
+die.py
