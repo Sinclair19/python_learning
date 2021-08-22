@@ -133,3 +133,67 @@ for index, column_header in enumerate(header_row):
 ### 16.1.10错误检查
 
 ### 16.1.11自己动手下载数据
+
+## 16.2制作全球地震散点图：JSON格式
+
+### 16.2.1地震数据
+```py
+import json
+# 探索数据的结构。
+filename = 'data/eq_data_1_day_m1.json'
+with open(filename) as f:
+   all_eq_data = json.load(f)
+readable_file = 'data/readable_eq_data.json'
+with open(readable_file, 'w') as f:
+   json.dump(all_eq_data, f, indent=4)
+```
+函数`json.load()`将数据转换为Python能够处理的格式，这里是一个庞大的字典
+`json.dump()`接受一个JSON数据对象和一个文件对象，并将数据写入这个文件
+参数`indent=4`让`dump()`使用与数据结构匹配的缩进量来设置数据的格式
+
+### 16.2.3创建地震列表
+
+### 16.2.4提取震级
+
+### 16.2.5提取位置数据
+
+### 16.2.6绘制震级散点图
+
+### 16.2.7另一种指定图表数据的方式
+```py
+import pandas as pd
+data = pd.DataFrame(
+data=zip(lons, lats, titles, mags), columns=["经度", "纬度", "位置", "震级"])
+data.head()
+```
+
+### 16.2.8定制标记的尺寸
+```py
+fig = px.scatter(
+   data,
+   x="经度",
+   y="纬度",
+   range_x=[-200, 200],
+   range_y=[-90, 90],
+   width=800,
+   height=800,
+   title="全球地震散点图",
+   size="震级",
+   size_max=10,
+)
+fig.write_html("global_earthquakes.html")
+fig.show()
+```
+标记尺寸默认为20像素，还可以通过`size_max=10`将最大显示尺寸缩放到10
+
+### 16.2.9定制标记的颜色
+默认的视觉映射图例渐变色范围是从蓝到红再到黄，数值越小则标记越蓝，而数值越大则标记越黄
+
+### 16.2.10其他渐变
+Plotly Express将渐变存储在模块`colors`中。这些渐变是在列表`px.colors.named_colorscales()`
+
+Plotly除了有`px.colors.diverging` 表示连续变量的配色方案，
+还有`px.colors.sequential` 和`px.colors.qualitative` 表示离散变量。
+
+### 16.2.11添加鼠标指向时显示的文本
+`hover_name="位置",`
