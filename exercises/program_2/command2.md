@@ -197,3 +197,43 @@ Plotly除了有`px.colors.diverging` 表示连续变量的配色方案，
 
 ### 16.2.11添加鼠标指向时显示的文本
 `hover_name="位置",`
+
+***
+
+# 17使用API
+
+## 17.1使用Web API
+
+### 17.1.1Git和GitHub
+
+### 17.1.2使用API调用请求数据
+
+### 17.1.4处理API响应
+```py
+import requests
+# 执行API调用并存储响应。
+url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'
+headers = {'Accept': 'application/vnd.github.v3+json'}
+r = requests.get(url, headers=headers)
+print(f"Status code: {r.status_code}")
+# 将API响应赋给一个变量。
+response_dict = r.json()
+# 处理结果。
+print(response_dict.keys())
+```
+
+### 17.1.5处理响应字典
+
+### 17.1.6概述最受欢迎的仓库
+
+### 17.1.7监视API的速率限制
+
+## 17.2使用Plotly可视化仓库
+python_repos_visual.py
+
+### 17.2.3在图表中添加可单击的链接
+可使用html语法
+
+### 17.2.4深入了解Plotly和GitHub API
+
+## 17.3Hacker News API
