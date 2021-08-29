@@ -6,10 +6,10 @@ class Ship:
     def __init__(self, ai_game):
         """初始化飞船并设置其初始位置。"""
         self.screen = ai_game.screen
-        self.screen = ai_game.settings
+        self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
 
-        self.image = pygame.image.load('images/ship.bmp')
+        self.image = pygame.image.load('/path/to/images/ship.bmp')
         self.rect = self.image.get_rect()
         
         # 对于每艘新飞船，都将其放在屏幕底部的中央。
